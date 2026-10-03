@@ -38,7 +38,7 @@ EdgeEver Web Clipper 可以把当前网页，或你选中的那一部分，保�
 主要功能：
 
 - 自动提取文章正文，并转换为便于搜索和编辑的 Markdown。
-- 选中一段文字后右键，选择“保存所选内容到 EdgeEver”，只保存这段文字。
+- 选中一段文字后右键，选择“保存选中文字到 EdgeEver”，只保存这段文字。
 - 在图片上右键，选择“保存图片到 EdgeEver”，把图片文件存成一条新笔记。
 - 在 X 上右键推文，保存展开后的全文和已经显示的图片。
 - 在小红书上保存笔记的标题、正文和图片，不写入评论。
@@ -89,11 +89,11 @@ Save the current webpage, user-selected text, a user-chosen image, one X post, o
 
 ### Permission justifications
 
-- `activeTab`: Read the active page only after the user clicks the extension's save action or chooses Save selection to EdgeEver, Save image to EdgeEver, Save post to EdgeEver, Save note to EdgeEver, Save answer or article to EdgeEver, or Save repository info to EdgeEver.
+- `activeTab`: Read the active page only after the user clicks the extension's save action or chooses Save selection to EdgeEver, Save image to EdgeEver, Save this post to EdgeEver, Save this Xiaohongshu note to EdgeEver, Save this Zhihu answer or article to EdgeEver, or Save this repository to EdgeEver.
 - `contextMenus`: Add one top-level item for the thing the user right-clicked: selected text, an image, an X post, a Xiaohongshu note, a Zhihu answer or article, or a GitHub repository page. It runs only after the user selects that item.
 - `scripting`: Inject the packaged capture script into the active page after the user initiates a capture.
 - `storage`: Store the user's EdgeEver instance URL, API token, and default notebook ID locally.
-- Optional host permissions: API calls go only to the EdgeEver instance the user approves. If a page cannot provide an image file, the extension asks for that image's site, or for all sites when the user chooses that option, and uses the access only to download the chosen image. Saving from an X timeline asks for access to X so the extension can remember the post under the pointer. That script only records the target and runs after the user allows it. Saving from a Xiaohongshu feed asks for Xiaohongshu for the same reason. An open note page can be saved without that extra permission. On Zhihu, a content script remembers the answer or article under the pointer and does not send the page anywhere. The full text is read only after the user chooses Save Zhihu content to EdgeEver, and it is sent only to the user's instance. If that listener is missing, the extension asks once for Zhihu and then asks the user to right-click the same text again.
+- Optional host permissions: API calls go only to the EdgeEver instance the user approves. If a page cannot provide an image file, the extension asks for that image's site, or for all sites when the user chooses that option, and uses the access only to download the chosen image. Saving from an X timeline asks for access to X so the extension can remember the post under the pointer. That script only records the target and runs after the user allows it. Saving from a Xiaohongshu feed asks for Xiaohongshu for the same reason. An open note page can be saved without that extra permission. On Zhihu, a content script remembers the answer or article under the pointer and does not send the page anywhere. The full text is read only after the user chooses Save this Zhihu answer or article to EdgeEver, and it is sent only to the user's instance. If that listener is missing, the extension asks once for Zhihu and then asks the user to right-click the same text again.
 
 Each permission justification field accepts at most 1,000 characters. The host text above is the wording saved with the 0.1.9 draft.
 
